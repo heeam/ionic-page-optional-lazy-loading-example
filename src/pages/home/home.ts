@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Nav, NavController } from 'ionic-angular';
 
 import { TodosPage } from '../../pages/todos/todos';
 // import { Todos2Page } from '../../pages/todos2/todos2';
@@ -10,16 +10,18 @@ import { TodosPage } from '../../pages/todos/todos';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-
-  }
+	constructor(
+		public nav: Nav,
+		public navCtrl: NavController
+	) { }
 
 	navigateToTodo() {
 		this.navCtrl.push(TodosPage);
 	}
-
 	navigateToTodo2() {
 		this.navCtrl.push('Todos2Page');
 	}
-
+	navigateToTodoDetail2(todoId: number) {
+		this.navCtrl.push('TodoDetail2Page', { id: todoId });
+	}
 }
